@@ -1,42 +1,40 @@
-package com.jerome.learningspring.data;
+package com.frankmoley.lil.learningspring.data;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 @Entity
 @Table(name="GUEST")
 public class Guest {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-
     @Column(name="GUEST_ID")
-    private long id;
-
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long guestId;
     @Column(name="FIRST_NAME")
     private String firstName;
-
     @Column(name="LAST_NAME")
     private String lastName;
-
     @Column(name="EMAIL_ADDRESS")
-    private String email;
-
-    @Column(name = "ADDRESS")
+    private String emailAddress;
+    @Column(name="ADDRESS")
     private String address;
-
-    @Column(name = "COUNTRY")
+    @Column(name="COUNTRY")
     private String country;
-
-    @Column(name = "STATE")
+    @Column(name="STATE")
     private String state;
+    @Column(name="PHONE_NUMBER")
+    private String phoneNumber;
 
-    @Column(name = "PHONE_NUMBER")
-    private String phone;
-
-    public long getId() {
-        return id;
+    public long getGuestId() {
+        return guestId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setGuestId(long guestId) {
+        this.guestId = guestId;
     }
 
     public String getFirstName() {
@@ -55,12 +53,12 @@ public class Guest {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
-        return email;
+    public String getEmailAddress() {
+        return emailAddress;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
     }
 
     public String getAddress() {
@@ -87,25 +85,25 @@ public class Guest {
         this.state = state;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     @Override
     public String toString() {
         return "Guest{" +
-                "id=" + id +
+                "guestId=" + guestId +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
+                ", emailAddress='" + emailAddress + '\'' +
                 ", address='" + address + '\'' +
                 ", country='" + country + '\'' +
                 ", state='" + state + '\'' +
-                ", phone='" + phone + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 '}';
     }
 }

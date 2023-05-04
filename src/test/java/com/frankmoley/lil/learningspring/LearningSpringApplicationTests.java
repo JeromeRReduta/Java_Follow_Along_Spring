@@ -1,4 +1,4 @@
-package com.jerome.learningspring;
+package com.frankmoley.lil.learningspring;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
