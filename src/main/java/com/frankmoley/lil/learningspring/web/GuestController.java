@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.List;
 
 @Controller
-@RequestMapping("/guests")
+@RequestMapping("/guest-page")
 public class GuestController {
     private final ReservationService reservationService;
 
@@ -22,6 +22,6 @@ public class GuestController {
     public String getGuests(Model model) {
         List<Guest> guests = this.reservationService.getGuests();
         model.addAttribute("guests", guests);
-        return "guests";
+        return "guest-page";
     }
 }
