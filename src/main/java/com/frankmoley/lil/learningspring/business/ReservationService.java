@@ -65,7 +65,16 @@ public class ReservationService {
     }
 
     public List<Guest> getGuests() {
-        return this.guestRepository.findAll();
+        List<Guest> guests = new ArrayList<>(this.guestRepository.findAll());
+        Comparator<Guest> byLastNameThenByFirst = (g1, g2) -> {
+            boolean sameLastName = g1.getLastName().equals(g2.getLastName());
+            if (sameLastName) {
+                return g1.getFirstName().compareTo(g2.getFirstName());
+            }
+            return g1.getLastName().compareTo(g2.getLastName());
+        };
+        guests.sort(byLastNameThenByFirst);
+        return guests;
     }
 }
 
