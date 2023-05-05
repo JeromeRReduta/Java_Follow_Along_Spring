@@ -21,24 +21,24 @@ public class WebserviceController {
         this.reservationService = reservationService;
     }
 
-    @RequestMapping(path = "/reservations", method = RequestMethod.GET)
+    @GetMapping(path = "/reservations")
     public List<RoomReservation> getReservations(
             @RequestParam(value = "date", required = false) String dateString) {
         Date date = this.dateUtils.createDateFromDateString(dateString);
         return this.reservationService.getRoomReservationsForDate(date);
     }
 
-    @RequestMapping(path="/guest-page", method = RequestMethod.GET)
+    @GetMapping(path="/guest-page")
     public List<Guest> getGuests() {
         return this.reservationService.getGuests();
     }
 
-    @RequestMapping(path = "/guest-page", method = RequestMethod.POST)
-    public Guest addGuest(Guest guest) {
-        return guest;
+    @PostMapping(path = "/guest-page")
+    public void addGuest(Guest guest) {
+        this.reservationService.addGuest(guest);
     }
 
-    @RequestMapping(path = "rooms", method = RequestMethod.GET)
+    @GetMapping(path = "rooms")
     public List<Room> getRooms() {
         return this.reservationService.getRooms();
     }

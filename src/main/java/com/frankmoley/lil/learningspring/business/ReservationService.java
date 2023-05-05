@@ -82,5 +82,10 @@ public class ReservationService {
         rooms.sort(Comparator.comparing(Room::getName));
         return rooms;
     }
+
+    public void addGuest(Guest guest) {
+        if (guest == null) return;
+        this.guestRepository.save(guest);
+    }
 }
 
