@@ -30,8 +30,6 @@ public class ReservationService {
     }
 
     public List<RoomReservation> getRoomReservationsForDate(Date date) {
-        //this.guestRepository.findAll().set(0, new Guest());
-
         Iterable<Room> rooms = this.roomRepository.findAll();
         Map<Long, RoomReservation> roomReservationMap = new HashMap();
         rooms.forEach(room -> {
@@ -64,10 +62,6 @@ public class ReservationService {
             }
         });
         return roomReservations;
-    }
-
-    public List<Guest> getGuests() {
-        return this.guestRepository.findAll(); // Note: Is this immutable?
     }
 }
 

@@ -2,24 +2,23 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Reserve @ Bubba Gump</title>
+    <title>Reservations</title>
 </head>
 <body>
-    <h1> Welcome :) </h1>
-    <table>
-        <tr>
-            <td>Room</td>
-            <td>Thingy Number</td>
-            <td>Guest</td>
-        </tr>
-        <!--Note: If I put a space (th: text, not th:text), the page crashes-->
-        <tr th:each="roomReservation: ${roomReservations}">
-            <td th:text="${roomReservation.roomName}">Room Name</td>
-            <td th:text="${roomReservation.roomNumber}">Room Number</td>
-            <td th:text="${roomReservation.lastName}!=null? ${roomReservation.lastName} + ',' +
-                ${roomReservation.firstName}: 'VACANT'">Guest</td>
-        </tr>
-    </table>
+<h1>Welcome :)</h1>
+<table>
+    <tr>
+        <td>Room</td>
+        <td>Room Number</td>
+        <td>Guest</td>
+    </tr>
+    <tr th:each="roomReservation: ${roomReservations}">
+        <td th:text="${roomReservation.roomName}">Room Name</td>
+        <td th:text="${roomReservation.roomNumber}">Room Number</td>
+        <td th:text="${roomReservation.lastName}!=null? ${roomReservation.lastName} + ', ' +
+        ${roomReservation.firstName}: 'VACANT'">Guest</td>
+    </tr>
+</table>
 
 </body>
 </html>
