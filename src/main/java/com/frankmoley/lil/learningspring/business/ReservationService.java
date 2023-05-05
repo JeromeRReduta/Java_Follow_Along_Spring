@@ -63,5 +63,9 @@ public class ReservationService {
         });
         return roomReservations;
     }
+
+    public List<Guest> getGuests() {
+        return this.guestRepository.findAll();
+    }
 }
 
