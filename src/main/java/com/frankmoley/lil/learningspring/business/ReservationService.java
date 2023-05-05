@@ -76,5 +76,11 @@ public class ReservationService {
         guests.sort(byLastNameThenByFirst);
         return guests;
     }
+
+    public List<Room> getRooms() {
+        List<Room> rooms = new ArrayList<>(this.roomRepository.findAll());
+        rooms.sort(Comparator.comparing(Room::getName));
+        return rooms;
+    }
 }
 
